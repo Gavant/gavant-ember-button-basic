@@ -2582,7 +2582,7 @@ ember-export-application-global@^2.0.0:
   dependencies:
     ember-cli-babel "^6.0.0-beta.7"
 
-ember-font-awesome@^4.0.0-rc.3:
+ember-font-awesome@4.0.0-rc.3:
   version "4.0.0-rc.3"
   resolved "http://artifactory.gavant.com:8081/artifactory/api/npm/npm-virtual/ember-font-awesome/-/ember-font-awesome-4.0.0-rc.3.tgz#6f63bb5d5a7e605c41fe17455264287fba3b4ce5"
   dependencies:

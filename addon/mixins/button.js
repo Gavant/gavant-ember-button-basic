@@ -1,6 +1,6 @@
 import Mixin from '@ember/object/mixin';
 import { set, get, computed, observer } from '@ember/object';
-import { and, not, notEmpty, readOnly } from '@ember/object/computed';
+import { and, notEmpty } from '@ember/object/computed';
 import { isEmpty, tryInvoke } from '@ember/utils';
 
 export default Mixin.create({
@@ -11,8 +11,7 @@ export default Mixin.create({
 
     classNames: [
         'action-button',
-        'btn',
-        'md-ripple-element'
+        'btn'
     ],
 
     classNameBindings: [
@@ -50,12 +49,12 @@ export default Mixin.create({
     //primary|secondary|success|info|warning|danger|link
     type: 'secondary',
     bubbles: true,
+    'tooltip-animation': 'perspective',
+    'tooltip-arrow': true,
+    'tooltip-hide-on': 'mouseleave blur escapekey',
+
     hasIcon: notEmpty('icon'),
     iconBtn: and('icon-only', 'hasIcon'),
-    rippleContainerSelector: null,
-    fitRipple: readOnly('iconBtn'),
-    center: readOnly('iconBtn'),
-    dimBackground: not('iconBtn'),
 
     buttonStyle: computed('type', 'outline', 'light', function() {
         const type = this.get('type');

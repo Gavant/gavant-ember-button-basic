@@ -6,7 +6,9 @@ import { isEmpty, tryInvoke } from '@ember/utils';
 export default Mixin.create({
     attributeBindings: [
         'disabled',
-        'title'
+        'title',
+        'tabindex',
+        'autofocus'
     ],
 
     classNames: [
@@ -31,6 +33,8 @@ export default Mixin.create({
     disabled: false,
     active: false,
     title: null,
+    tabindex: null,
+    autofocus: null,
     tooltip: null,
     label: null,
     //lg|md|sm|xs

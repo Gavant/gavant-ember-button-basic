@@ -5,6 +5,30 @@
         icon="remove"
         label="Remove"
         tooltip="Hi! I'm a tooltip!"
+        autofocus=true
+        tabindex=2
+    }}
+    {{button-basic
+        type="success"
+        outline=true
+        icon="save"
+        label="Save"
+        autofocus=false
+        tabindex=3
+    }}
+    {{button-basic
+        type="danger"
+        icon="ban"
+        label="Cancel"
+        autofocus=false
+        tabindex=2
+    }}
+    {{button-basic
+        type="danger"
+        outline=true
+        icon="ban"
+        label="Untabable"
+        tabindex=-1
     }}
     {{outlet}}
 </div>

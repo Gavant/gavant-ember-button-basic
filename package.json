@@ -1,5 +1,5 @@
 {
-  "name": "gavant-ember-button-basic",
+  "name": "@gavant/ember-button-basic",
   "version": "0.0.8",
   "description": "An extensible button component with a myriad of attributes and config options.",
   "author": "Gavant Software, Inc.",

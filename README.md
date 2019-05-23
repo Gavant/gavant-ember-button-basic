@@ -7,7 +7,7 @@ Installation
 ------------------------------------------------------------------------------
 
 ```
-ember install gavant-ember-button-basic
+ember install @gavant/ember-button-basic
 ```
 
 

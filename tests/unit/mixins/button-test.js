@@ -1,5 +1,5 @@
 import EmberObject from '@ember/object';
-import ButtonMixin from 'gavant-ember-button-basic/mixins/button';
+import ButtonMixin from '@gavant/ember-button-basic/mixins/button';
 import { module, test } from 'qunit';
 
 module('Unit | Mixin | button', function() {

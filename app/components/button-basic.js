@@ -1,1 +1,1 @@
-export { default } from 'gavant-ember-button-basic/components/button-basic';
+export { default } from '@gavant/ember-button-basic/components/button-basic';

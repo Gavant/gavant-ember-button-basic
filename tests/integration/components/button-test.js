@@ -3,22 +3,22 @@ import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
-module('Integration | Component | button-basic', function(hooks) {
+module('Integration | Component | button', function(hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function(assert) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
 
-    await render(hbs`{{button-basic}}`);
+    await render(hbs`<Button />`);
 
     assert.equal(this.element.textContent.trim(), '');
 
     // Template block usage:
     await render(hbs`
-      {{#button-basic}}
+      <Button>
         template block text
-      {{/button-basic}}
+      </Button>
     `);
 
     assert.equal(this.element.textContent.trim(), 'template block text');

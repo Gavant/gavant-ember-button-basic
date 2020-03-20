@@ -4,7 +4,7 @@ import { and, notEmpty } from '@ember/object/computed';
 import { isEmpty, tryInvoke } from '@ember/utils';
 
 //@ts-ignore
-import layout from '../templates/components/button-basic';
+import layout from '../templates/components/button';
 
 export default Component.extend({
     layout,

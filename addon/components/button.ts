@@ -1,98 +1,88 @@
-import Component from '@ember/component';
-import { set, get, computed, observer } from '@ember/object';
-import { and, notEmpty } from '@ember/object/computed';
-import { isEmpty, tryInvoke } from '@ember/utils';
+import Component from '@glimmer/component';
+import { action } from '@ember/object';
 
-//@ts-ignore
-import layout from '../templates/components/button';
+export interface ButtonArgs {
+    type?: 'primary' | 'secondary' | 'success' | 'info' | 'warning' | 'danger' | 'link' | 'light' | 'dark';
+    size?: 'lg' | 'md' | 'sm' | 'xs';
+    blockLayout?: boolean;
+    wide?: boolean;
+    outline?: boolean;
+    rounded?: boolean;
+    circle?: boolean;
+    iconOnly?: boolean;
+    active?: boolean;
+    disabled?: boolean;
+    label?: string;
+    icon?: string;
+    iconPrefix?: string;
+    iconClass?: string;
+    iconSize?: 'xs' | 'sm' | 'lg' | '2x' | '3x' | '4x' | '5x' | '6x'|  '7x' | '8x' | '9x' | '10x';
+    iconFlip?: 'horizontal' | 'vertical' | 'both';
+    iconRotation?: 90 | 180 | 270;
+    iconSpin?: boolean;
+    iconBorder?: boolean;
+    iconFixedWidth?: boolean;
+    preventDefault?: boolean;
+    stopPropagation?: boolean;
+    action?: (event: Event) => void;
+}
 
-export default Component.extend({
-    layout,
-    tagName: 'button',
-    attributeBindings: ['button-type:type'],
-    classNames: ['action-button-basic'],
-    'button-type': 'button',
+export default class Button extends Component<ButtonArgs> {
+    /**
+     * Bootstrap button style type (e.g. primary, info, danger)
+     */
+    get type() {
+        return this.args.type || 'secondary';
+    }
 
-    click(event) {
-        //prevent the default browser event from ocurring (e.g native form submissions)
-        event.preventDefault();
-        //execute the provided click handler action, if one is provided
-        tryInvoke(this, 'action', [event]);
-        ///prevent bubbling, if set to false. If undefined/true, the event will bubble
-        return this.get('bubbles');
-    },
-
-    attributeBindings: [
-        'disabled',
-        'title',
-        'tabindex',
-        'autofocus'
-    ],
-
-    classNames: [
-        'action-button',
-        'btn'
-    ],
-
-    classNameBindings: [
-        'buttonStyle',
-        'buttonSize',
-        'iconBtn',
-        'block:btn-block',
-        'rounded:btn-rounded',
-        'circle:btn-circle',
-        'wide:btn-wide',
-        'slim:btn-slim',
-        'active',
-        'disabled',
-    ],
-
-    'button-class': null,
-    disabled: false,
-    active: false,
-    title: null,
-    tabindex: null,
-    autofocus: null,
-    label: null,
-    //lg|md|sm|xs
-    size: null,
-    //specify a material icon name (e.g. "person") to create an icon-only button
-    icon: null,
-    //set to true for a border/background-less button that only displays the given icon
-    'icon-only': false,
-    outline: false,
-    light: false,
-    rounded: false,
-    circle: false,
-    block: false,
-    wide: false,
-    slim: false,
-    //primary|secondary|success|info|warning|danger|link
-    type: 'secondary',
-    bubbles: true,
-
-    hasIcon: notEmpty('icon'),
-    iconBtn: and('icon-only', 'hasIcon'),
-
-    buttonStyle: computed('type', 'outline', 'light', function() {
-        const type = this.get('type');
-        const outline = this.get('outline');
-        const light = this.get('light');
-        let style = '';
-
-        if(outline) {
-        style = `btn-outline-${type}`;
-        } else if(light) {
-        style = `btn-light-${type}`;
+    /**
+     * Bootstrap button style class (e.g. btn-primary, btn-outline-success)
+     */
+    get buttonTypeClass() {
+        let btnClass = '';
+        if(this.args.outline) {
+            btnClass = `btn-outline-${this.type}`;
         } else {
-        style = `btn-${type}`;
+            btnClass = `btn-${this.type}`;
         }
 
-        return style;
-    }),
+        return btnClass;
+    }
 
-    buttonSize: computed('size', function() {
-        const size = this.get('size');
-        return !isEmpty(size) ? `btn-${size}` : null;
-    })
-});
+    /**
+     * Bootstrap size class (e.g. btn-lg, btn-sm)
+     */
+    get buttonSizeClass() {
+        return this.args.size ? `btn-${this.args.size}` : '';
+    }
+
+    /**
+     * Buttons are given a custom class if they only contain an icon
+     */
+    get isIconButton() {
+        return this.args.iconOnly && this.args.icon;
+    }
+
+    /**
+     * Handles button click events
+     * @param {Event} event
+     */
+    @action
+    onClick(event: Event) {
+        if(this.args.preventDefault) {
+            event.preventDefault();
+        }
+
+        if(this.args.stopPropagation) {
+            event.stopPropagation();
+        }
+
+        if(this.args.action) {
+            this.args.action(event);
+        }
+    }
+
+    //TODO need to pass-thru other button events (mouse down/up/over, etc)?
+    //or can they be set with "on" modifiers by the invoker?
+}
+

@@ -1,9 +1,0 @@
-{{#if hasIcon}}
-    <FaIcon @icon={{this.icon}} class="action-button-icon" />
-{{/if}}
-{{#if (not this.iconBtn)}}
-    {{#if @label}}
-        <span class="action-button-lbl">{{@label}}</span>
-    {{/if}}
-    {{yield}}
-{{/if}}

@@ -13,5 +13,29 @@ export default class ApplicationController extends Controller {
         // eslint-disable-next-line no-console
         console.log('Submitted form!')
     }
+
+    @action
+    onMouseDown() {
+        // eslint-disable-next-line no-console
+        console.log('Triggered mouse down action!');
+    }
+
+    @action
+    onMouseUp() {
+        // eslint-disable-next-line no-console
+        console.log('Triggered mouse up action!');
+    }
+
+    @action
+    onMouseEnter() {
+        // eslint-disable-next-line no-console
+        console.log('Triggered mouse enter action!');
+    }
+
+    @action
+    onMouseLeave() {
+        // eslint-disable-next-line no-console
+        console.log('Triggered mouse leave action!');
+    }
 }
 

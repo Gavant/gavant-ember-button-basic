@@ -2,6 +2,9 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 
 export interface ButtonArgs {
+    //this needs to be an arg and not just passed in as an HTML element like `type="submit"` due to an open bug
+    //@see https://github.com/emberjs/ember.js/issues/18232
+    buttonType?: 'button' | 'submit' | 'reset';
     type?: 'primary' | 'secondary' | 'success' | 'info' | 'warning' | 'danger' | 'link' | 'light' | 'dark';
     size?: 'lg' | 'md' | 'sm' | 'xs';
     blockLayout?: boolean;
@@ -28,6 +31,13 @@ export interface ButtonArgs {
 }
 
 export default class Button extends Component<ButtonArgs> {
+    /**
+     * The button's HTML `type` attribute value
+     */
+    get buttonType() {
+        return this.args.buttonType || 'button';
+    }
+
     /**
      * Bootstrap button style type (e.g. primary, info, danger)
      */
@@ -81,8 +91,5 @@ export default class Button extends Component<ButtonArgs> {
             this.args.action(event);
         }
     }
-
-    //TODO need to pass-thru other button events (mouse down/up/over, etc)?
-    //or can they be set with "on" modifiers by the invoker?
 }
 

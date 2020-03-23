@@ -9,6 +9,10 @@
         type="submit"
         autofocus={{true}}
         tabindex={{2}}
+        {{on "mousedown" this.onMouseDown}}
+        {{on "mouseup" this.onMouseUp}}
+        {{on "mouseenter" this.onMouseEnter}}
+        {{on "mouseleave" this.onMouseLeave}}
     />
     <Button
         @type="success"
@@ -103,7 +107,12 @@
             <div class="form-group">
                 <input type="text" class="form-control" />
             </div>
-            <Button @action={{this.submit}} @label="Submit" type="submit" />
+            <Button
+                @buttonType="submit"
+                @action={{this.submit}}
+                @preventDefault={{true}}
+                @label="Submit"
+            />
         </form>
     </div>
 </div>

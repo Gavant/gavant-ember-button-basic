@@ -15,14 +15,14 @@
         {{#if @icon}}
             <FaIcon
                 @icon={{@icon}}
-                @prefix={{this.args.iconPrefix}}
-                @size={{this.args.iconSize}}
-                @rotation={{this.args.iconRotation}}
-                @flip={{this.args.iconFlip}}
-                @spin={{this.args.iconSpin}}
-                @border={{this.args.iconBorder}}
-                @fixedWidth={{this.args.iconFixedWidth}}
-                class="action-button-icon {{this.args.iconClass}}"
+                @prefix={{@iconPrefix}}
+                @size={{@iconSize}}
+                @rotation={{@iconRotation}}
+                @flip={{@iconFlip}}
+                @spin={{@iconSpin}}
+                @border={{@iconBorder}}
+                @fixedWidth={{@iconFixedWidth}}
+                class="action-button-icon {{@iconClass}}"
             />
         {{/if}}
         {{#if @label}}

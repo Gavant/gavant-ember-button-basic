@@ -1,34 +1,118 @@
 <div class="p-3">
     <h2 id="title">Welcome to Ember</h2>
-    {{button-basic
-        type="primary"
-        icon="remove"
-        label="Remove"
-        tooltip="Hi! I'm a tooltip!"
-        autofocus=true
-        tabindex=2
-    }}
-    {{button-basic
-        type="success"
-        outline=true
-        icon="save"
-        label="Save"
-        autofocus=false
-        tabindex=3
-    }}
-    {{button-basic
-        type="danger"
-        icon="ban"
-        label="Cancel"
-        autofocus=false
-        tabindex=2
-    }}
-    {{button-basic
-        type="danger"
-        outline=true
-        icon="ban"
-        label="Untabable"
-        tabindex=-1
-    }}
-    {{outlet}}
+    <Button
+        @action={{this.buttonAction}}
+        @type="primary"
+        @icon="user"
+        @iconFlip="vertical"
+        @label="Remove"
+        type="submit"
+        autofocus={{true}}
+        tabindex={{2}}
+        {{on "mousedown" this.onMouseDown}}
+        {{on "mouseup" this.onMouseUp}}
+        {{on "mouseenter" this.onMouseEnter}}
+        {{on "mouseleave" this.onMouseLeave}}
+    />
+    <Button
+        @type="success"
+        @outline={{true}}
+        @icon="save"
+        @iconFixedWidth={{true}}
+        @label="Save"
+        autofocus={{false}}
+        tabindex={{3}}
+    />
+    <Button
+        @type="danger"
+        @icon="ban"
+        @label="Cancel"
+        @iconSize="lg"
+        autofocus={{false}}
+        tabindex={{2}}
+    />
+    <Button
+        @type="danger"
+        @outline={{true}}
+        @icon="ban"
+        @iconSpin={{true}}
+        @label="Un-tabbable"
+        tabindex={{-1}}
+    />
+    <div class="pt-4">
+        <Button
+            @size="lg"
+            @outline={{true}}
+            @label="Large"
+        />
+        <Button @type="secondary" @outline={{true}}>
+            Block layout content
+        </Button>
+        <Button
+            @size="sm"
+            @outline={{true}}
+            @label="Small"
+        />
+    </div>
+    <div class="pt-4">
+        <Button
+            @wide={{true}}
+            @slim={{true}}
+            @type="info"
+            @label="Wide"
+            disabled={{true}}
+        />
+        <Button
+            @slim={{true}}
+            @type="warning"
+            @label="Slim"
+        />
+        <Button
+            @rounded={{true}}
+            @type="danger"
+            @label="Rounded"
+        />
+        <Button
+            @circle={{true}}
+            @type="success"
+            @label="Circle"
+        />
+        <Button
+            @type="light"
+            @label="Light"
+        />
+        <Button
+            @type="dark"
+            @label="Dark"
+        />
+        <Button
+            @type="primary"
+            @label="Custom class"
+            class="custom-class"
+        />
+        <Button
+            @type="primary"
+            @icon="apple-alt"
+            @iconOnly={{true}}
+        />
+    </div>
+    <div class="pt-4">
+        <Button
+            @blockLayout={{true}}
+            @label="Block button"
+        />
+    </div>
+    <div class="pt-4">
+        <form>
+            <div class="form-group">
+                <input type="text" class="form-control" />
+            </div>
+            <Button
+                @buttonType="submit"
+                @action={{this.submit}}
+                @preventDefault={{true}}
+                @label="Submit"
+            />
+        </form>
+    </div>
 </div>

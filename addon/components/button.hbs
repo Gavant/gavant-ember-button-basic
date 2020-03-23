@@ -1,0 +1,33 @@
+<button
+    type={{this.buttonType}}
+    class="action-button action-button-basic btn {{this.buttonTypeClass}} {{this.buttonSizeClass}} {{if this.isIconButton "icon-btn"}}
+        {{~if @blockLayout " btn-block"}}
+        {{~if @wide " btn-wide"}}
+        {{~if @slim " btn-slim"}}
+        {{~if @rounded " btn-rounded"}}
+        {{~if @circle " btn-circle"}}
+        {{~if @active " active"}}
+        {{~if @disabled " disabled"}}"
+    {{on "click" this.onClick}}
+    ...attributes
+>
+    <span class="action-button-content">
+        {{#if @icon}}
+            <FaIcon
+                @icon={{@icon}}
+                @prefix={{@iconPrefix}}
+                @size={{@iconSize}}
+                @rotation={{@iconRotation}}
+                @flip={{@iconFlip}}
+                @spin={{@iconSpin}}
+                @border={{@iconBorder}}
+                @fixedWidth={{@iconFixedWidth}}
+                class="action-button-icon {{@iconClass}}"
+            />
+        {{/if}}
+        {{#if @label}}
+            <span class="action-button-lbl">{{@label}}</span>
+        {{/if}}
+    </span>
+    {{yield}}
+</button>

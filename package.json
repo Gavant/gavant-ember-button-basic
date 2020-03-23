@@ -1,6 +1,6 @@
 {
   "name": "@gavant/ember-button-basic",
-  "version": "0.0.9",
+  "version": "1.0.0",
   "description": "An extensible button component with a myriad of attributes and config options.",
   "keywords": [
     "ember-addon",

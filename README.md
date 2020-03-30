@@ -1,4 +1,4 @@
-gavant-ember-button-basic
+@gavant/ember-button-basic
 ==============================================================================
 
 A simple and flexible `<Button>` Glimmer component, with built-in Bootstrap 4 and FontAwesome 5 integration.

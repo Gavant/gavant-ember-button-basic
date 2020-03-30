@@ -30,7 +30,7 @@ export interface ButtonArgs {
     action?: (event: Event) => void;
 }
 
-export default class Button extends Component<ButtonArgs> {
+export default class Button<T extends ButtonArgs> extends Component<T> {
     /**
      * The button's HTML `type` attribute value
      */
@@ -92,4 +92,3 @@ export default class Button extends Component<ButtonArgs> {
         }
     }
 }
-

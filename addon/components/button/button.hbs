@@ -1,13 +1,16 @@
 <button
     type={{this.buttonType}}
-    class="action-button action-button-basic btn {{this.buttonTypeClass}} {{this.buttonSizeClass}} {{if this.isIconButton "icon-btn"}}
-        {{~if @blockLayout " btn-block"}}
-        {{~if @wide " btn-wide"}}
-        {{~if @slim " btn-slim"}}
-        {{~if @rounded " btn-rounded"}}
-        {{~if @circle " btn-circle"}}
-        {{~if @active " active"}}
-        {{~if @disabled " disabled"}}"
+    class="action-button action-button-basic btn
+        {{this.buttonTypeClass}}
+        {{this.buttonSizeClass}}
+        {{if this.isIconButton 'icon-btn'}}
+        {{~if @blockLayout ' btn-block'}}
+        {{~if @wide ' btn-wide'}}
+        {{~if @slim ' btn-slim'}}
+        {{~if @rounded ' btn-rounded'}}
+        {{~if @circle ' btn-circle'}}
+        {{~if @active ' active'}}
+        {{~if @disabled ' disabled'}}"
     {{on "click" this.onClick}}
     ...attributes
 >

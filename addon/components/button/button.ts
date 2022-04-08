@@ -1,5 +1,5 @@
-import Component from '@glimmer/component';
 import { action } from '@ember/object';
+import Component from '@glimmer/component';
 
 export interface ButtonArgs {
     //this needs to be an arg and not just passed in as an HTML element like `type="submit"` due to an open bug
@@ -19,7 +19,7 @@ export interface ButtonArgs {
     icon?: string;
     iconPrefix?: string;
     iconClass?: string;
-    iconSize?: 'xs' | 'sm' | 'lg' | '2x' | '3x' | '4x' | '5x' | '6x'|  '7x' | '8x' | '9x' | '10x';
+    iconSize?: 'xs' | 'sm' | 'lg' | '2x' | '3x' | '4x' | '5x' | '6x' | '7x' | '8x' | '9x' | '10x';
     iconFlip?: 'horizontal' | 'vertical' | 'both';
     iconRotation?: 90 | 180 | 270;
     iconSpin?: boolean;
@@ -50,7 +50,7 @@ export default class Button<T extends ButtonArgs> extends Component<T> {
      */
     get buttonTypeClass() {
         let btnClass = '';
-        if(this.args.outline) {
+        if (this.args.outline) {
             btnClass = `btn-outline-${this.type}`;
         } else {
             btnClass = `btn-${this.type}`;
@@ -79,15 +79,15 @@ export default class Button<T extends ButtonArgs> extends Component<T> {
      */
     @action
     onClick(event: Event) {
-        if(this.args.preventDefault) {
+        if (this.args.preventDefault) {
             event.preventDefault();
         }
 
-        if(this.args.stopPropagation) {
+        if (this.args.stopPropagation) {
             event.stopPropagation();
         }
 
-        if(this.args.action) {
+        if (this.args.action) {
             this.args.action(event);
         }
     }

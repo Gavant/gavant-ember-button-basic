@@ -7,9 +7,7 @@ module.exports = {
 
     afterInstall() {
         return this.addAddonsToProject({
-            packages: [
-                { name: '@fortawesome/ember-fontawesome', target: '^0.3.2' }
-            ]
+            packages: [{ name: '@fortawesome/ember-fontawesome', target: '^0.3.2' }]
         });
     }
 };

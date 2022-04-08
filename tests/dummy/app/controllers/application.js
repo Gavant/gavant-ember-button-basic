@@ -11,7 +11,7 @@ export default class ApplicationController extends Controller {
     @action
     submit() {
         // eslint-disable-next-line no-console
-        console.log('Submitted form!')
+        console.log('Submitted form!');
     }
 
     @action
@@ -38,4 +38,3 @@ export default class ApplicationController extends Controller {
         console.log('Triggered mouse leave action!');
     }
 }
-

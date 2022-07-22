@@ -1,3 +1,12 @@
+
+## v3.0.0 (2022-07-22)
+
+#### :boom: Breaking Change
+* [#33](https://github.com/Gavant/gavant-ember-button-basic/pull/33) Converting addon to v2 ([@bakerac4](https://github.com/bakerac4))
+
+#### Committers: 1
+- Adam Baker ([@bakerac4](https://github.com/bakerac4))
+
 #### [v2.0.0](https://github.com/Gavant/gavant-ember-button-basic/compare/v1.0.1...v2.0.0)
 
 -   Upgrade to 4.0 [`#31`](https://github.com/Gavant/gavant-ember-button-basic/pull/31)

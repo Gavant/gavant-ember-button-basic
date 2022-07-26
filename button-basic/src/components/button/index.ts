@@ -1,6 +1,8 @@
 import { action } from '@ember/object';
 import Component from '@glimmer/component';
 
+import type { IconName, IconPrefix } from '@fortawesome/fontawesome-svg-core';
+
 export interface ButtonArgs {
     //this needs to be an arg and not just passed in as an HTML element like `type="submit"` due to an open bug
     //@see https://github.com/emberjs/ember.js/issues/18232
@@ -16,8 +18,8 @@ export interface ButtonArgs {
     active?: boolean;
     disabled?: boolean;
     label?: string;
-    icon?: string;
-    iconPrefix?: string;
+    icon?: IconName;
+    iconPrefix?: IconPrefix;
     iconClass?: string;
     iconSize?: 'xs' | 'sm' | 'lg' | '2x' | '3x' | '4x' | '5x' | '6x' | '7x' | '8x' | '9x' | '10x';
     iconFlip?: 'horizontal' | 'vertical' | 'both';
@@ -26,11 +28,20 @@ export interface ButtonArgs {
     iconBorder?: boolean;
     iconFixedWidth?: boolean;
     preventDefault?: boolean;
+    slim?: boolean;
     stopPropagation?: boolean;
     action?: (event: Event) => void;
 }
 
-export default class Button<T extends ButtonArgs> extends Component<T> {
+export interface ButtonSignature<T> {
+    Args: T;
+    Element: HTMLButtonElement;
+    Blocks: {
+        default: [];
+    };
+}
+
+export default class Button<T extends ButtonArgs> extends Component<ButtonSignature<T>> {
     /**
      * The button's HTML `type` attribute value
      */

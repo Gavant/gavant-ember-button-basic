@@ -1,5 +1,14 @@
 
 
+
+## v3.0.2 (2022-07-26)
+
+#### :bug: Bug Fix
+* [#35](https://github.com/Gavant/gavant-ember-button-basic/pull/35) Fixing glint ([@bakerac4](https://github.com/bakerac4))
+
+#### Committers: 1
+- Adam Baker ([@bakerac4](https://github.com/bakerac4))
+
 ## v3.0.1 (2022-07-26)
 
 #### :bug: Bug Fix

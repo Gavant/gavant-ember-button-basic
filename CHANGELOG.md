@@ -1,4 +1,13 @@
 
+
+## v3.0.1 (2022-07-26)
+
+#### :bug: Bug Fix
+* [#34](https://github.com/Gavant/gavant-ember-button-basic/pull/34) Fix types ([@bakerac4](https://github.com/bakerac4))
+
+#### Committers: 1
+- Adam Baker ([@bakerac4](https://github.com/bakerac4))
+
 ## v3.0.0 (2022-07-22)
 
 #### :boom: Breaking Change

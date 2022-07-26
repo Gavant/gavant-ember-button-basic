@@ -120,7 +120,8 @@
   "exports": {
     ".": "./dist/index.js",
     "./*": "./dist/*",
-    "./addon-main.js": "./addon-main.js"
+    "./addon-main.js": "./addon-main.js",
+    "./components/button": "./dist/components/button/index.js"
   },
   "volta": {
     "extends": "../package.json"
